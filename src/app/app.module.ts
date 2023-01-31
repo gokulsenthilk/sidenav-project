@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,6 +21,9 @@ import { CardDesignComponent } from './views/posts/card-design.component';
 import { LoginFormComponent } from './views/posts/login-form.component';
 import { WebDesignComponent } from './views/posts/web-design.component';
 import { SettingComponent } from './views/setting.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from './views/sidenav/sidenav.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -41,8 +44,17 @@ import { SettingComponent } from './views/setting.component';
     ExploreComponent,
     HistoryComponent,
     SettingComponent,
+    SidenavComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
