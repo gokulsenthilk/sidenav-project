@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ScrollService } from 'src/app/config/sidenav-scroller.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,14 +11,17 @@ export class SidenavComponent {
   @Input() menuSidebar: any;
   @Output() showSubmenuEvent: EventEmitter<HTMLElement> = new EventEmitter();
 
-  constructor(private route: Router) {}
+  constructor(private scrollService: ScrollService) {}
   showSubmenu(itemEl: HTMLElement) {
     this.showSubmenuEvent.emit(itemEl);
   }
 
-  gotoSection(section: string) {
-    console.log(section);
-    // this.route.navigate(['home', section]);
-    this.route.navigate(['home', section]);
+  scrollToId(id: string) {
+    console.log('element id : ', id);
+    this.scrollService.scrollToElementById(id);
+  }
+
+  scrollToElement(element: HTMLElement) {
+    this.scrollService.scrollToElement(element);
   }
 }
