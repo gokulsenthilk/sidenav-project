@@ -1,24 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScrollService {
+  private selection = new Subject();
+  currentSelection = this.selection.asObservable();
+
   constructor() {}
-  scrollToElementById(id: string) {
-    const element = this.__getElementById(id);
-    this.scrollToElement(element);
-  }
 
-  private __getElementById(id: string): HTMLElement {
-    console.log('element id : ', id);
-    // const element = <HTMLElement>document.querySelector(`#${id}`);
-    const element = document.getElementById(id) as HTMLElement;
-    return element;
-  }
-
-  scrollToElement(element: HTMLElement) {
-    element.scrollIntoView({ behavior: 'smooth' });
+  selectionChange(selection: string) {
+    this.selection.next(selection);
   }
 }
