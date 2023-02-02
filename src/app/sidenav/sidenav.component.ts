@@ -10,7 +10,7 @@ import { ScrollService } from 'src/app/config/sidenav-scroller.service';
 export class SidenavComponent {
   @Input() menuSidebar: any;
   @Output() showSubmenuEvent: EventEmitter<HTMLElement> = new EventEmitter();
-  currentSection: string = 'account_information';
+  @Input() currentSection: string;
 
   constructor(private scrollService: ScrollService) {
     this.scrollService.currentSelection.subscribe(
@@ -24,10 +24,6 @@ export class SidenavComponent {
 
   scrollTo(section: any) {
     (document.querySelector(`#${section}`) as HTMLElement).scrollIntoView();
-  }
-
-  onSectionChange(sectionId: string) {
-    this.currentSection = sectionId;
   }
 
   isCurrentSelection(items: any, currentSection: string): boolean {

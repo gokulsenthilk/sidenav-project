@@ -1,7 +1,8 @@
 <ng-container>
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top">
-      <app-sidenav [menuSidebar]="menuSidebar" (showSubmenuEvent)="showSubmenuEvent($event)"></app-sidenav>
+      <app-sidenav [menuSidebar]="menuSidebar" (showSubmenuEvent)="showSubmenuEvent($event)"
+        [currentSection]="currentSection"></app-sidenav>
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar color="primary">

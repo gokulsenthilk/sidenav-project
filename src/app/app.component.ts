@@ -10,6 +10,7 @@ import { ScrollService } from './config/sidenav-scroller.service';
 })
 export class AppComponent {
   menuSidebar = MENU_LINKS;
+  currentSection = MENU_LINKS[0].id ?? '';
 
   options = this._formBuilder.group({
     bottom: 0,
